@@ -1,5 +1,5 @@
 .content{
-    background-color: red;
+    background: none;
     margin-top: 21px;
     width: calc(100% + 32px);
     height: calc(100vh - 143px);
@@ -8,6 +8,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 }
 
 .content::-webkit-scrollbar-track{
@@ -28,32 +31,72 @@
 .content-page{
     height:100%;
     min-width: 80%;
+    max-width: 80%;
     margin: 0 5%;
-    background-color: blue;
-    animation-timeline: view(x 0% 0%);
+    background-color: rgb(0, 0, 255);
+    animation-timeline: view(x 5% 5%);
     animation-name: appear;
     animation-fill-mode: both;
     animation-duration: 1ms; /* Firefox requires this to apply the animation */
 }
 
-.content-page:first-child{
-    margin-left: 10%;
+.content-spacer{
+    min-width: 5%;
+    height: 100%;
+    background: none;
 }
-.content-page:last-child{
-    margin-right: 10%;
+
+.content-page:not(:nth-child(3)){
+    margin-left: 0;
+}
+.content-page:not(:nth-last-child(3)){
+    margin-right: 0;
+}
+
+.content > .content-page {
+    scroll-snap-align: center;
+}
+
+.content-trigger#trigger-left{
+    left:0;
+}
+.content-trigger#trigger-right{
+    right:0;
+}
+.content-trigger{
+    background: none;
+    z-index: 999;
+    position:fixed;
+    width: 7.5%;
+    height: inherit;
 }
 
 @keyframes appear {
     0% {
-      opacity: 0;
-      transform: scale(0.8);
+      opacity: 0.109;
+      transform: scale(0.82);
+    }
+    29.41% {
+        opacity: 1;
+        transform: scale(1);
     }
     50% {
-      opacity: 1;
-      transform: scaleX(1) scaleY(1);
+        opacity: 1;
+        transform: scale(1);
+    }
+    70.59% {
+        opacity: 1;
+        transform: scale(1);
     }
     100% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-  }
+        opacity: 0.109;
+        transform: scale(0.82);
+    }
+}
+
+
+@media (max-width: 600px) {
+    .content{
+        overflow-y: scroll;
+    }
+}
