@@ -1,0 +1,59 @@
+.content{
+    background-color: red;
+    margin-top: 21px;
+    width: calc(100% + 32px);
+    height: calc(100vh - 143px);
+    margin-left: -16px;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.content::-webkit-scrollbar-track{
+    background-color: transparent;
+    display: none;
+}
+.content::-webkit-scrollbar-thumb{
+    background-color: #852FA4;
+    border-radius: 8px;
+    display: none;
+}
+.content::-webkit-scrollbar{
+    background-color: transparent;
+    width: 8px;
+    display: none;
+}
+
+.content-page{
+    height:100%;
+    min-width: 80%;
+    margin: 0 5%;
+    background-color: blue;
+    animation-timeline: view(x 0% 0%);
+    animation-name: appear;
+    animation-fill-mode: both;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+
+.content-page:first-child{
+    margin-left: 10%;
+}
+.content-page:last-child{
+    margin-right: 10%;
+}
+
+@keyframes appear {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleX(1) scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+  }

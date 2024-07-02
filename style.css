@@ -1,0 +1,12 @@
+@import url(/css/background.css);
+@import url(/css/header.css);
+@import url(/css/content.css);
+@font-face {
+    font-family: "Montserrat";
+    src: url('fonts/Montserrat-Italic-VariableFont_wght.ttf');
+    src: url('fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+body{
+    margin:16px;
+}

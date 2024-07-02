@@ -1,0 +1,13 @@
+body{
+    background: url(/img/fondo.png);
+    animation: bg-scroll 5s infinite linear;
+}
+
+@keyframes bg-scroll{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: -209px;
+    }
+}
