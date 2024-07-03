@@ -1,6 +1,6 @@
-@import url(/css/background.css);
-@import url(/css/header.css);
-@import url(/css/content.css);
+@import url(css/background.css);
+@import url(css/header.css);
+@import url(css/content.css);
 @font-face {
     font-family: "Montserrat";
     src: url('fonts/Montserrat-Italic-VariableFont_wght.ttf');
@@ -10,4 +10,15 @@
 body{
     margin:16px;
     scroll-behavior: smooth;
+    background-image: url(./img/fondo.png);
+    animation: bg-scroll 5s infinite linear;
+}
+
+@keyframes bg-scroll{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: -209px;
+    }
 }
