@@ -17,11 +17,13 @@
     background-color: transparent;
     display: none;
 }
+
 .content::-webkit-scrollbar-thumb{
     background-color: #852FA4;
     border-radius: 8px;
     display: none;
 }
+
 .content::-webkit-scrollbar{
     background-color: transparent;
     width: 8px;
@@ -33,7 +35,7 @@
     min-width: 80%;
     max-width: 80%;
     margin: 0 5%;
-    background-color: rgb(0, 0, 255);
+    background: #00000011;
     animation-timeline: view(x 5% 5%);
     animation-name: appear;
     animation-fill-mode: both;
@@ -49,6 +51,7 @@
 .content-page:not(:nth-child(3)){
     margin-left: 0;
 }
+
 .content-page:not(:nth-last-child(3)){
     margin-right: 0;
 }
@@ -60,9 +63,11 @@
 .content-trigger#trigger-left{
     left:0;
 }
+
 .content-trigger#trigger-right{
     right:0;
 }
+
 .content-trigger{
     background: none;
     z-index: 999;
@@ -107,4 +112,19 @@
     .content{
         overflow-y: scroll;
     }
+}
+
+
+/* Sections: */
+
+.content-page{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap:16px
+}
+
+.content-page-section{
+    background-color: blue;
+    width: 100%;
 }
