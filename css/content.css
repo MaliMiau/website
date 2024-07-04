@@ -1,6 +1,6 @@
 .content{
     background: none;
-    margin-top: 21px;
+    margin: 21px 0 0 -16px;
     width: calc(100% + 32px);
     height: calc(100vh - 143px);
     margin-left: -16px;
@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    overflow-y: viible;
 
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -35,11 +36,11 @@
     min-width: 80%;
     max-width: 80%;
     margin: 0 5%;
-    background: #00000011;
     animation-timeline: view(x 5% 5%);
     animation-name: appear;
     animation-fill-mode: both;
     animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    overflow: visible !important;
 }
 
 .content-spacer{
@@ -78,16 +79,16 @@
 
 @keyframes appear {
     0% {
-      opacity: 0.109;
+      opacity: 0.5;
       transform: scale(0.82);
     }
     5% {
-        opacity: 0.109;
+        opacity: 0.5;
         transform: scale(0.82);
       }
     28.3% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(0.9);
     }
     50% {
         opacity: 1;
@@ -95,14 +96,14 @@
     }
     73% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(0.9);
     }
     95% {
-        opacity: 0.109;
+        opacity: 0.5;
         transform: scale(0.82);
     }
     100% {
-        opacity: 0.109;
+        opacity: 0.5;
         transform: scale(0.82);
     }
 }
@@ -112,6 +113,9 @@
     .content{
         overflow-y: scroll;
     }
+    /* .content-page{
+        height: fit-content;
+    } */
 }
 
 
@@ -121,10 +125,15 @@
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
-    gap:16px
+    gap: 16px;
 }
 
 .content-page-section{
-    background-color: blue;
     width: 100%;
+    margin-bottom: 6px;
+    margin-left:-5px;
+    background-color: #a345bb;
+    border:5px solid #8d33a6;
+    box-shadow: 0 10px 0 -5px #852fa4;
+    border-radius: 44px;
 }
