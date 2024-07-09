@@ -125,7 +125,7 @@
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 10px 21px;
 }
 
 .content-page-section{
