@@ -1,3 +1,5 @@
+import { desktopPage, mobilePage } from './content.js'
+
 // c = carrousel
 const cTriggerL = document.getElementById("trigger-left");
 const cTriggerR = document.getElementById("trigger-right");
@@ -10,7 +12,10 @@ let activePage = Math.round(cElement.scrollLeft / scrollPerPage)
 cTriggerL.addEventListener('click', () => scrollContent(-1));
 cTriggerR.addEventListener('click', () => scrollContent(1));
 
-window.onresize, cElement.onscroll = resize
+window.onresize = resize
+cElement.onscroll = resize
+
+resize()
 
 // Move the scroll to an adyacent content page
 function scrollContent(direction) {
@@ -33,6 +38,13 @@ function resize(){
     scrollPerPage = cElement.clientWidth * 0.8; // 80% of the container width
     activePage = Math.round(cElement.scrollLeft / scrollPerPage)
     focusChanged()
+    console.log(document)
+    if (window.innerWidth <= 1000){
+        mobilePage()
+    } 
+    else{
+        desktopPage()
+    }
 } 
 
 function focusChanged(){
