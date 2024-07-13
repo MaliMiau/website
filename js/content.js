@@ -2,7 +2,6 @@ const cPages = document.getElementsByClassName('content-page')
 const cPSections = document.getElementsByClassName('content-page-section')
 
 
-
 export function desktopPage(){
 
     for (const page of cPages) {
@@ -25,22 +24,24 @@ export function mobilePage(){
         var height = 0
         var position = 1
         for(const section of page.children){
-            var heightS = section.getAttribute('mobh')
-            var positionS = section.getAttribute('mobp')
-            if(heightS === null){
-                const [rX, rY] = section.getAttribute('rows').split("-").map(value => parseInt(value, 10));;
-                height += rY - rX + 1       
-                heightS = rY - rX + 1
+            if (section.classList.contains('content-page-section')){
+                var heightS = section.getAttribute('mobh')
+                var positionS = section.getAttribute('mobp')
+                if(heightS === null){
+                    const [rX, rY] = section.getAttribute('rows').split("-").map(value => parseInt(value, 10));;
+                    height += rY - rX + 1       
+                    heightS = rY - rX + 1
+                }
+                else{
+                    height += heightS
+                }
+                if(positionS != null){
+                    position = positionS
+                }
+                section.style.gridRow = `${position} / ${position + heightS}`
+                position += heightS
+                section.style.gridColumn = `1/2`
             }
-            else{
-                height += heightS
-            }
-            if(positionS != null){
-                position = positionS
-            }
-            section.style.gridRow = `${position} / ${position + heightS}`
-            position += heightS
-            section.style.gridColumn = `1/2`
         }
         const gridHeight = height
         page.style.gridTemplateRows = `repeat(${gridHeight}, 1fr)`

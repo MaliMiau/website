@@ -4,6 +4,7 @@ import { desktopPage, mobilePage } from './content.js'
 const cTriggerL = document.getElementById("trigger-left");
 const cTriggerR = document.getElementById("trigger-right");
 const cElement = document.getElementById("content");
+const anchorButtons = document.getElementsByTagName('a')
 let isCScrolling = false
 let scrollPerPage = cElement.clientWidth * 0.8; // 80% of the container width
 let activePage = Math.round(cElement.scrollLeft / scrollPerPage)
@@ -15,7 +16,12 @@ cTriggerR.addEventListener('click', () => scrollContent(1));
 window.onresize = resize
 cElement.onscroll = resize
 
+Array.from(anchorButtons).forEach(element => {
+    element.addEventListener('click', a)
+});
+
 resize()
+a()
 
 // Move the scroll to an adyacent content page
 function scrollContent(direction) {
@@ -38,7 +44,6 @@ function resize(){
     scrollPerPage = cElement.clientWidth * 0.8; // 80% of the container width
     activePage = Math.round(cElement.scrollLeft / scrollPerPage)
     focusChanged()
-    console.log(document)
     if (window.innerWidth <= 1000){
         mobilePage()
     } 
@@ -49,4 +54,15 @@ function resize(){
 
 function focusChanged(){
     console.log(`The focused page is the ${activePage}`)
+}
+
+
+function a(){
+    if(isCScrolling){return} else {isCScrolling = true}
+    cElement.style.scrollSnapType = 'none';
+    setTimeout(() => {
+        cElement.style.scrollSnapType = 'x mandatory';
+        isCScrolling = false
+        console.log("hooola")
+    }, 1500);
 }

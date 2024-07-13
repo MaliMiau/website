@@ -10,7 +10,7 @@
     flex-wrap: nowrap;
     overflow-y: viible;
 
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
     scroll-behavior: smooth;
 }
 
@@ -136,4 +136,10 @@
     border:5px solid #8d33a6;
     box-shadow: 0 10px 0 -5px #852fa4;
     border-radius: 44px;
+}
+
+.anchor{
+    position: fixed;
+    right:0;
+    margin-right:-26.25%;
 }
